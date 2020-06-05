@@ -7,43 +7,45 @@
   bottom: 0;
   margin-bottom: 0px;
   z-index: 100;
-}
-
-.slide {
-  animation: bounce;
-  /* referring directly to the animation's @keyframe declaration */
+  animation: slideInUp;
   animation-duration: 2s;
-  /* don't forget to set a duration! */
+  /* animation-delay: 3.5s; */
 }
-
+/* 
 .f1 {
   animation: slideInRight;
   animation-duration: 0.5s;
 }
+
 .f2 {
   animation: slideInRight;
   animation-duration: 1s;
 }
+
 .f3 {
   animation: slideInRight;
   animation-duration: 1.5s;
 }
+
 .f4 {
   animation: slideInRight;
   animation-duration: 2s;
 }
+
 .f5 {
   animation: slideInRight;
   animation-duration: 2.5s;
 }
+
 .f6 {
   animation: slideInRight;
   animation-duration: 3s;
 }
+
 .f7 {
   animation: slideInRight;
   animation-duration: 3.5s;
-}
+} */
 
 .norm {
   font-size: 2rem;

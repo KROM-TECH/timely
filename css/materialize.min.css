@@ -6708,7 +6708,8 @@ input[type=range]+.thumb .value {
 }
 
 input[type=range]+.thumb.active {
-  border-radius: 50% 50% 50% 0
+  border-radius: 50% 50% 50% 0;
+  background-color: #2196F3
 }
 
 input[type=range]+.thumb.active .value {
@@ -6739,7 +6740,7 @@ input[type=range]::-webkit-slider-thumb {
   transition: box-shadow .3s;
   transition: box-shadow .3s, -webkit-box-shadow .3s;
   -webkit-appearance: none;
-  background-color: #26a69a;
+  background-color: rgb(25, 125, 206);
   -webkit-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
   margin: -5px 0 0 0
