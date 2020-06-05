@@ -11,7 +11,7 @@
   animation-duration: 2s;
   /* animation-delay: 3.5s; */
 }
-/* 
+
 .f1 {
   animation: slideInRight;
   animation-duration: 0.5s;
@@ -45,7 +45,7 @@
 .f7 {
   animation: slideInRight;
   animation-duration: 3.5s;
-} */
+}
 
 .norm {
   font-size: 2rem;
