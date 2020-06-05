@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 .botnav {
   height: 3.5em;
   width: 100%;
@@ -16,5 +17,6 @@
 }
 
 .lin {
-  line-height: 0px !important;
+  background-color: #151B54;
+  font-family: 'Fredoka One', cursive;
 }
