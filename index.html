@@ -7,7 +7,6 @@
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <link type="text/css" rel="stylesheet" href="css/custom.css" media="screen,projection" />
-  <link type="text/css" rel="stylesheet" href="css/animate.css" media="screen,projection" />
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -133,11 +132,11 @@
 
       <section>
         <!-- Modal Structure -->
-        <div id="modal1" class="modal blue-text darken-4" style="border-radius: 1rem; width: 80%;">
+        <div id="modal1" class="modal blue-text darken-4" style="border-radius: 1rem; width: 90%; overflow-x: hidden;">
           <div class="modal-content center">
             <h5>Details</h5>
             <div class="input-field col s12">
-              <select>
+              <select id="days">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="mon">Monday</option>
                 <option value="tue">Tuesday</option>
@@ -151,20 +150,32 @@
             </div>
 
             <div class="input-field col s12">
-              <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-              <label for="first_name">Subject</label>
+              <input placeholder="Placeholder" id="TtSubject" type="text" class="validate">
+              <label for="TtSubject">Subject</label>
             </div>
 
             <p class="range-field">
               <label for="time">Select time</label>
-              <input type="range" id="time" min="0" max="24" />
-              <label class="right blue-text"><span id="ST"></span>:00</label>
-              
+              <input type="range" id="time" min="0" max="12" />
+
             </p>
+
+            <div class="row">
+              <!-- Switch -->
+              <div class="col left switch">
+                <label>
+                  AM
+                  <input id="check" type="checkbox">
+                  <span class="lever"></span>
+                  PM
+                </label>
+              </div>
+              <div class="col right blue-text" id="Ttime"><span id="ST">6</span><span id="per">AM</span></div>
+            </div>
 
           </div>
           <div class="row center">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">save</a>
+            <a id="save" class="modal-close waves-effect waves-green btn-flat">save</a>
           </div>
         </div>
       </section>
@@ -207,7 +218,7 @@
   <script>M.AutoInit()</script>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
-  
+
   <!-- TODO: Add SDKs for Firebase products that you want to use
        https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
@@ -215,24 +226,32 @@
   <script src="./js/custom.js"></script>
 
   <script>
-    window.onscroll = function () { myFunction() };
-    var prevScrollpos = window.pageYOffset;
-    function myFunction() {
-      var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementById('fab').style.display = 'block';
-      } else {
-        document.getElementById('fab').style.display = 'none';
+    //Created a class so a new instance object can be call each time the save button is clicked
+    class Tt {
+      constructor(day, sub, tim, id) {
+        return { id: id, day: day, sub: sub, tim: tim }
       }
-      prevScrollpos = currentScrollPos;
     }
-  </script>
-  <script>
-    const time = document.getElementById('time')
-    time.addEventListener('change', function(){
-      document.getElementById('ST').innerHTML = time.value
+    document.getElementById('save').addEventListener('click', function () {
+      //create an array to hold the values
+      timeTable = []
+      //gets the values
+      days = document.getElementById('days').value
+      TtSubject = document.getElementById('TtSubject').value
+      Ttime = document.getElementById('Ttime').innerText
+      id = timeTable.length //uses the arrays length as an identifial
+        // console.log(new Tt(days,TtSubject, Ttime))
+
+        //push the new object/timetable input to the array
+        timeTable.push(new Tt(id, days, TtSubject, Ttime));
+
+      console.log(timeTable)
+
+
     })
+    console.log(localStorage)
   </script>
+
 </body>
 
 </html>

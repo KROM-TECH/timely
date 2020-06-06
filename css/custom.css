@@ -7,44 +7,41 @@
   bottom: 0;
   margin-bottom: 0px;
   z-index: 100;
-  animation: slideInUp;
-  animation-duration: 2s;
-  /* animation-delay: 3.5s; */
 }
 
 .f1 {
   animation: slideInRight;
-  animation-duration: 0.5s;
+  animation-duration: 0.1s;
 }
 
 .f2 {
   animation: slideInRight;
-  animation-duration: 1s;
+  animation-duration: 0.2s;
 }
 
 .f3 {
   animation: slideInRight;
-  animation-duration: 1.5s;
+  animation-duration: 0.3s;
 }
 
 .f4 {
   animation: slideInRight;
-  animation-duration: 2s;
+  animation-duration: 0.4s;
 }
 
 .f5 {
   animation: slideInRight;
-  animation-duration: 2.5s;
+  animation-duration: 0.5s;
 }
 
 .f6 {
   animation: slideInRight;
-  animation-duration: 3s;
+  animation-duration: 0.6s;
 }
 
 .f7 {
   animation: slideInRight;
-  animation-duration: 3.5s;
+  animation-duration: 0.7s;
 }
 
 .norm {
