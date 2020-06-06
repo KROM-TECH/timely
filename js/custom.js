@@ -10,17 +10,38 @@
       prevScrollpos = currentScrollPos;
     }
 
-const time = document.getElementById('time')
-time.addEventListener('change', function () {
-  document.getElementById('ST').innerHTML = time.value
+const ftime = document.getElementById('ftime')
+ftime.addEventListener('change', function () {
+  document.getElementById('fST').innerHTML = ftime.value
+  document.getElementById('ft').innerHTML = ftime.value
 })
-const check = document.getElementById('check')
-check.addEventListener('change', function () {
-  if (check.checked) {
-    document.getElementById('per').innerHTML = 'PM'
-    document.getElementById('Ttime').style.color = 'orange'
+const fcheck = document.getElementById('fcheck')
+fcheck.addEventListener('change', function () {
+  if (fcheck.checked) {
+    document.getElementById('fper').innerHTML = 'PM'
+    document.getElementById('ftt').innerHTML = 'PM'
+    document.getElementById('fTtime').style.color = 'orange'
   } else {
-    document.getElementById('per').innerHTML = 'AM'
-    document.getElementById('Ttime').style.color = '#151B54'
+    document.getElementById('fper').innerHTML = 'AM'
+    document.getElementById('ftt').innerHTML = 'AM'
+    document.getElementById('fTtime').style.color = '#151B54'
+  }
+})
+
+const ttime = document.getElementById('ttime')
+ttime.addEventListener('change', function () {
+  document.getElementById('tST').innerHTML = ttime.value
+  document.getElementById('tt').innerHTML = ttime.value
+})
+const tcheck = document.getElementById('tcheck')
+tcheck.addEventListener('change', function () {
+  if (tcheck.checked) {
+    document.getElementById('tper').innerHTML = 'PM'
+    document.getElementById('ttt').innerHTML = 'PM'
+    document.getElementById('tTtime').style.color = 'orange'
+  } else {
+    document.getElementById('tper').innerHTML = 'AM'
+    document.getElementById('ttt').innerHTML = 'AM'
+    document.getElementById('tTtime').style.color = '#151B54'
   }
 })
