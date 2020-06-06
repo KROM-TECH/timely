@@ -18,7 +18,9 @@ const check = document.getElementById('check')
 check.addEventListener('change', function () {
   if (check.checked) {
     document.getElementById('per').innerHTML = 'PM'
+    document.getElementById('Ttime').style.color = 'orange'
   } else {
     document.getElementById('per').innerHTML = 'AM'
+    document.getElementById('Ttime').style.color = '#151B54'
   }
 })
