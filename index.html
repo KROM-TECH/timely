@@ -150,7 +150,7 @@
             </div>
 
             <div class="input-field col s12">
-              <input placeholder="Placeholder" id="TtSubject" type="text" class="validate">
+              <input id="TtSubject" type="text" data-length="12" >
               <label for="TtSubject">Subject</label>
             </div>
             <div class="row">
@@ -194,7 +194,7 @@
               </div>
             </div>
             <div class="center row">
-              <p><span id="ft">6</span><span id="ftt">AM</span> to <span id="tt">6</span><span id="ttt">AM</span></p>
+              <p id="sumTime"><span id="ft">6</span><span id="ftt">AM</span> to <span id="tt">6</span><span id="ttt">AM</span></p>
             </div>
             <div class="row center">
               <a id="save" class="modal-close waves-effect waves-green btn-flat">save</a>
@@ -249,6 +249,14 @@
   <script src="./js/custom.js"></script>
 
   <script>
+    
+    document.getElementById('TtSubject').addEventListener('change', function(){
+      let num = document.getElementById('TtSubject').value
+      if(num.length > 12){
+        alert('you cant write more than 12 letters')
+        document.getElementById('TtSubject').disabled = true
+      }else{}
+    });
     //Created a class so a new instance object can be call each time the save button is clicked
     class Tt {
       constructor(id, day, sub, tim, ) {
@@ -262,7 +270,7 @@
       //gets the values
       days = document.getElementById('days').value
       TtSubject = document.getElementById('TtSubject').value
-      Ttime = document.getElementById('Ttime').innerText
+      Ttime = document.getElementById('sumTime').innerText
       if (localStorage.getItem('timeTable') == null) {
         console.log('hello')
         var id = 0
