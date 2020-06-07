@@ -1,3 +1,13 @@
+const deleter = document.getElementById('deleter');
+const Ttable = JSON.parse(localStorage.getItem('timeTable'))
+const Tmon = document.getElementById('Tmon')
+const Ttue = document.getElementById('Ttue')
+const Twed = document.getElementById('Twed')
+const Tthu = document.getElementById('Tthu')
+const Tfri = document.getElementById('Tfri')
+const Tsat = document.getElementById('Tsat')
+const Tsun = document.getElementById('Tsun')
+    
     window.onscroll = function () { myFunction() };
     var prevScrollpos = window.pageYOffset;
     function myFunction() {
@@ -45,3 +55,235 @@ tcheck.addEventListener('change', function () {
     document.getElementById('tTtime').style.color = '#151B54'
   }
 })
+
+
+ // to checkk the sub input field and reduce input
+    document.getElementById('TtSubject').addEventListener('change', function () {
+      let num = document.getElementById('TtSubject').value
+      if (num.length > 12) {
+        alert('you cant write more than 12 letters')
+        document.getElementById('TtSubject').disabled = true
+      } else { }
+    });
+
+    //Created a class so a new instance object can be call each time the save button is clicked
+    class Tt {
+      constructor(id, day, sub, tim, ) {
+        return { id: id, day: day, sub: sub, tim: tim }
+      }
+    }
+
+
+// add an event listener to the save button event
+document.getElementById('save').addEventListener('click', function () {
+  //gets the values
+  const days = document.getElementById('days').value
+  const TtSubject = document.getElementById('TtSubject').value
+  const Ttime = document.getElementById('sumTime').innerText
+
+  if (days == "" || TtSubject == "") { alert('you need to fill in day and subject') }
+  else {
+
+    //check for already existing value
+    if (localStorage.getItem('timeTable') == null) {
+      console.log('hello')
+      var id = 0
+    } else {
+      console.log('else')
+      var id = JSON.parse(localStorage.getItem('timeTable')).length //uses the arrays length as an identifial
+      // console.log(new Tt(days,TtSubject, Ttime))
+    }
+
+
+    // //push the new object/timetable input to the array
+    // timeTable.push(new Tt(id, days, TtSubject, Ttime));
+    const NEW = new Tt(id, days, TtSubject, Ttime)
+
+
+    var addToLocalStorageArray = function (value) {
+      // Get the existing data
+      var existing = localStorage.getItem('timetable');
+      // If no existing data, create an array
+      // Otherwise, convert the localStorage string to an array
+      if (localStorage.getItem('timeTable') == null) {
+        existing = []
+        // Add new data to localStorage Array
+        existing.push(value);
+        // Save back to localStorage
+        localStorage.setItem('timeTable', JSON.stringify(existing));
+      } else {
+        existing = JSON.parse(localStorage.getItem('timeTable'));
+        // Add new data to localStorage Array
+        existing.push(value);
+        // Save back to localStorage
+        localStorage.setItem('timeTable', JSON.stringify(existing));
+      }
+
+
+    };
+
+    addToLocalStorageArray(NEW)
+
+    location.reload()
+  }
+
+})
+
+//loop through the array to output each object to the del modal
+Ttable.forEach(function (doc) {
+  console.log(doc)
+  del(doc)
+})
+
+
+function del(data) {
+  const html = `
+      <p style= "font-size:12px">
+          <span style="margin:0.5rem;">${data.id}</span>
+          <span style="margin:0.5rem;">${data.day}</span>
+          <span style="margin:0.5rem;">${data.sub}</span>
+          <span style="margin:0.5rem;">${data.tim}</span>
+      </p>
+          
+    `;
+
+  deleter.innerHTML += html
+}
+
+console.log(localStorage)
+console.log(JSON.parse(localStorage.getItem('timeTable')))
+
+
+//Display appropiate content for each day
+const Monday = Ttable.filter((days) => {
+  return days.day == 'mon'
+})
+console.log(Monday)
+
+const Tuesday = Ttable.filter((days) => {
+  return days.day == 'tue'
+})
+console.log(Tuesday)
+
+const Wednesday = Ttable.filter((days) => {
+  return days.day == 'wed'
+})
+console.log(Wednesday)
+
+const Thursday = Ttable.filter((days) => {
+  return days.day == 'thu'
+})
+console.log(Thursday)
+
+const Friday = Ttable.filter((days) => {
+  return days.day == 'fri'
+})
+console.log(Friday)
+
+const Saturday = Ttable.filter((days) => {
+  return days.day == 'sat'
+})
+console.log(Saturday)
+
+const Sunday = Ttable.filter((days) => {
+  return days.day == 'sun'
+})
+console.log(Sunday)
+//Display appropiate content for each day end
+
+//Rendering array to DOM
+Monday.forEach(function (doc) {
+  console.log(doc)
+  mon(doc)
+})
+
+Tuesday.forEach(function (doc) {
+  console.log(doc)
+  tue(doc)
+})
+
+Wednesday.forEach(function (doc) {
+  console.log(doc)
+  wed(doc)
+})
+
+Thursday.forEach(function (doc) {
+  console.log(doc)
+  thu(doc)
+})
+
+Friday.forEach(function (doc) {
+  console.log(doc)
+  fri(doc)
+})
+
+Saturday.forEach(function (doc) {
+  console.log(doc)
+  sat(doc)
+})
+
+Sunday.forEach(function (doc) {
+  console.log(doc)
+  sun(doc)
+})
+
+//Rendering array to DOM end
+
+//function to render
+function mon(data) {
+  const html = `
+    <li>${data.sub} <span class="right">${data.tim}</span></li>          
+    `;
+
+  Tmon.innerHTML += html
+}
+
+function tue(data) {
+  const html = `
+    <li>${data.sub} <span class="right">${data.tim}</span></li>          
+    `;
+
+  Ttue.innerHTML += html
+}
+
+function wed(data) {
+  const html = `
+    <li>${data.sub} <span class="right">${data.tim}</span></li>          
+    `;
+
+  Twed.innerHTML += html
+}
+
+function thu(data) {
+  const html = `
+    <li>${data.sub} <span class="right">${data.tim}</span></li>          
+    `;
+
+  Tthu.innerHTML += html
+}
+
+function fri(data) {
+  const html = `
+    <li>${data.sub} <span class="right">${data.tim}</span></li>          
+    `;
+
+  Tfri.innerHTML += html
+}
+
+function sat(data) {
+  const html = `
+    <li>${data.sub} <span class="right">${data.tim}</span></li>          
+    `;
+
+  Tsat.innerHTML += html
+}
+
+function sun(data) {
+  const html = `
+    <li>${data.sub} <span class="right">${data.tim}</span></li>          
+    `;
+
+  Tsun.innerHTML += html
+}
+
+//function to render

@@ -24,7 +24,7 @@
       </div>
 
       <div id="delete" class="modal">
-        <div id="loader" class="modal-content">
+        <div id="deleter" class="modal-content">
           
 
         </div>
@@ -41,9 +41,8 @@
         </div>
         <div class="col l9 s9 m9">
           <h3>Monday</h3>
-          <ol>
-            <li>Eat <span class="right">2pm</span></li>
-            <li>Sleep <span class="right">12pm</span></li>
+          <ol id="Tmon">
+
           </ol>
         </div>
       </div>
@@ -55,9 +54,8 @@
         </div>
         <div class="col l9 s9 m9">
           <h3>Tuesday</h3>
-          <ol>
-            <li>Eat <span class="right">2pm</span></li>
-            <li>Sleep <span class="right">12pm</span></li>
+          <ol id="Ttue">
+
           </ol>
         </div>
       </div>
@@ -69,9 +67,8 @@
         </div>
         <div class="col l9 s9 m9">
           <h3>Wednesday</h3>
-          <ol>
-            <li>Eat <span class="right">2pm</span></li>
-            <li>Sleep <span class="right">12pm</span></li>
+          <ol id="Twed">
+
           </ol>
         </div>
       </div>
@@ -83,9 +80,8 @@
         </div>
         <div class="col l9 s9 m9">
           <h3>Thursday</h3>
-          <ol>
-            <li>Eat <span class="right">2pm</span></li>
-            <li>Sleep <span class="right">12pm</span></li>
+          <ol id="Tthu">
+
           </ol>
         </div>
       </div>
@@ -97,9 +93,8 @@
         </div>
         <div class="col l9 s9 m9">
           <h3>Friday</h3>
-          <ol>
-            <li>Eat <span class="right">2pm</span></li>
-            <li>Sleep <span class="right">12pm</span></li>
+          <ol id="Tfri">
+
           </ol>
         </div>
       </div>
@@ -111,13 +106,8 @@
         </div>
         <div class="col l9 s9 m9">
           <h3>Saturday</h3>
-          <ol>
-            <li>Eat <span class="right red-text waves-effect waves-red" style="margin-left:2rem">delete</span> <span
-                class="right">2pm</span></li>
-            <li>Eat <span class="right red-text waves-effect waves-red" style="margin-left:2rem">delete</span> <span
-                class="right">2pm</span></li>
-            <li>Eat <span class="right red-text waves-effect waves-red" style="margin-left:2rem">delete</span> <span
-                class="right">2pm</span></li>
+          <ol id="Tsat">
+
           </ol>
         </div>
       </div>
@@ -129,13 +119,8 @@
         </div>
         <div class="col l9 s9 m9">
           <h3>Sunday</h3>
-          <ol style="max-width: 20rem; ">
-            <li><span style="max-width: 0.5rem;">Eat</span> <span class="right" style="margin-left:0.5rem">2pm to
-                10pm</span> <span class="right red-text waves-effect waves-red">delete</span> </li>
-            <li><span style="max-width: 0.5rem;">Eat</span> <span class="right" style="margin-left:0.5rem">2pm to
-                10pm</span> <span class="right red-text waves-effect waves-red">delete</span> </li>
-            <li><span style="max-width: 0.5rem;">Eat</span> <span class="right" style="margin-left:0.5rem">2pm to
-                10pm</span> <span class="right red-text waves-effect waves-red">delete</span> </li>
+          <ol id="Tsun">
+
           </ol>
         </div>
       </div>
@@ -266,104 +251,11 @@
   <script src="./js/fireconfig.js"></script>
   <script src="./js/custom.js"></script>
 
-  <script>
-        const loader = document.getElementById('loader');
-    document.getElementById('TtSubject').addEventListener('change', function () {
-      let num = document.getElementById('TtSubject').value
-      if (num.length > 12) {
-        alert('you cant write more than 12 letters')
-        document.getElementById('TtSubject').disabled = true
-      } else { }
-    });
-    //Created a class so a new instance object can be call each time the save button is clicked
-    class Tt {
-      constructor(id, day, sub, tim, ) {
-        return { id: id, day: day, sub: sub, tim: tim }
-      }
-    }
 
 
+<script>
 
-
-    //create an array to hold the values
-    // var timeTable = JSON.parse(localStorage.getItem('timeTable'));
-    document.getElementById('save').addEventListener('click', function () {
-      //gets the values
-      const days = document.getElementById('days').value
-      const TtSubject = document.getElementById('TtSubject').value
-      const Ttime = document.getElementById('sumTime').innerText
-
-      if (days == "" || TtSubject == "") { alert('you need to fill in day and subject') }
-      else {
-
-        //check for already existing value
-        if (localStorage.getItem('timeTable') == null) {
-          console.log('hello')
-          var id = 0
-        } else {
-          console.log('else')
-          var id = JSON.parse(localStorage.getItem('timeTable')).length //uses the arrays length as an identifial
-          // console.log(new Tt(days,TtSubject, Ttime))
-        }
-
-
-        // //push the new object/timetable input to the array
-        // timeTable.push(new Tt(id, days, TtSubject, Ttime));
-        const NEW = new Tt(id, days, TtSubject, Ttime)
-
-
-        var addToLocalStorageArray = function (value) {
-          // Get the existing data
-          var existing = localStorage.getItem('timetable');
-          // If no existing data, create an array
-          // Otherwise, convert the localStorage string to an array
-          if (localStorage.getItem('timeTable') == null) {
-            existing = []
-            // Add new data to localStorage Array
-            existing.push(value);
-            // Save back to localStorage
-            localStorage.setItem('timeTable', JSON.stringify(existing));
-          } else {
-            existing = JSON.parse(localStorage.getItem('timeTable'));
-            // Add new data to localStorage Array
-            existing.push(value);
-            // Save back to localStorage
-            localStorage.setItem('timeTable', JSON.stringify(existing));
-          }
-
-
-        };
-
-        addToLocalStorageArray(NEW)
-
-        console.log(JSON.parse(localStorage.getItem('timeTable')))
-      }
-    })
-    console.log(localStorage)
-    console.log(JSON.parse(localStorage.getItem('timeTable')))
-    const Ttable = JSON.parse(localStorage.getItem('timeTable'))
-
-    Ttable.forEach(function (doc) {
-      console.log(doc)
-      del(doc)
-    })
-
-
-    function del(data){
-  const html = `
-      <p>
-          <span style="margin:1rem;">${data.id}</span>
-          <span style="margin:1rem;">${data.day}</span>
-          <span style="margin:1rem;">${data.sub}</span>
-          <span style="margin:1rem;">${data.tim}</span>
-      </p>
-          
-    `;
-
-  loader.innerHTML += html
-    }
-
-  </script>
+</script>
 
 </body>
 
