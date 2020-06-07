@@ -58,7 +58,7 @@ tcheck.addEventListener('change', function () {
 
 
  // to checkk the sub input field and reduce input
-    document.getElementById('TtSubject').addEventListener('change', function () {
+    document.getElementById('TtSubject').addEventListener('keyup', function () {
       let num = document.getElementById('TtSubject').value
       if (num.length > 12) {
         alert('you cant write more than 12 letters')
