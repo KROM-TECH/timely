@@ -8,6 +8,7 @@ const Tfri = document.getElementById('Tfri')
 const Tsat = document.getElementById('Tsat')
 const Tsun = document.getElementById('Tsun')
     
+//make fab disappear when scrolling down
     window.onscroll = function () { myFunction() };
     var prevScrollpos = window.pageYOffset;
     function myFunction() {
@@ -20,6 +21,7 @@ const Tsun = document.getElementById('Tsun')
       prevScrollpos = currentScrollPos;
     }
 
+    //listen to slider to adjust time
 const ftime = document.getElementById('ftime')
 ftime.addEventListener('change', function () {
   document.getElementById('fST').innerHTML = ftime.value
@@ -57,12 +59,13 @@ tcheck.addEventListener('change', function () {
 })
 
 
- // to checkk the sub input field and reduce input
-    document.getElementById('TtSubject').addEventListener('keyup', function () {
+ // to check the sub input field and reduce input
+    document.getElementById('TtSubject').addEventListener('input', function () {
       let num = document.getElementById('TtSubject').value
       if (num.length > 12) {
-        alert('you cant write more than 12 letters')
-        document.getElementById('TtSubject').disabled = true
+        let shorten = num.substring(0, 11);
+       document.getElementById('TtSubject').value = shorten
+        console.log('done')
       } else { }
     });
 
