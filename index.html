@@ -147,8 +147,10 @@
               </div>
 
               <div class="input-field col s12">
-                <input id="TtSubject" type="text" data-length="12" required />
+                <input id="TtSubject" type="text" required />
                 <label for="TtSubject">Subject</label>
+                <span class="helper-text" >input can't exceed 11 characters</span>
+
               </div>
               <div class="row">
                 <p class="range-field">
@@ -250,7 +252,23 @@
 
 
   <script>
+document.getElementById('deleter').addEventListener('click', function(e){
+  if(e.target.tagName === 'I'){
+    console.log(e.target.id)
+    let delID = e.target.id
+   let upNEW = Ttable.splice(delID, 1)
+   console.log(Ttable)
 
+  localStorage.setItem('timeTable', JSON.stringify(Ttable));
+  deleter.innerHTML = ''
+  Ttable.forEach(function (doc) {
+      console.log(doc)
+      del(doc)
+    })
+
+
+  }
+})
   </script>
 
 </body>

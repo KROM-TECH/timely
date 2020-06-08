@@ -65,7 +65,6 @@ tcheck.addEventListener('change', function () {
       if (num.length > 12) {
         let shorten = num.substring(0, 11);
        document.getElementById('TtSubject').value = shorten
-        console.log('done')
       } else { }
     });
 
@@ -141,11 +140,11 @@ Ttable.forEach(function (doc) {
 
 function del(data) {
   const html = `
-      <p style= "font-size:12px">
-          <span style="margin:0.5rem;">${data.id}</span>
+      <p style= "font-size:14px">
           <span style="margin:0.5rem;">${data.day}</span>
           <span style="margin:0.5rem;">${data.sub}</span>
-          <span style="margin:0.5rem;">${data.tim}</span>
+          <span style="margin:0.5rem;">${data.tim}</span> <br>
+          <span class="center" style="margin:0.5rem;"><i class="red-text material-icons" id="${data.id}">delete</i></span>
       </p>
           
     `;
@@ -161,72 +160,58 @@ console.log(JSON.parse(localStorage.getItem('timeTable')))
 const Monday = Ttable.filter((days) => {
   return days.day == 'mon'
 })
-console.log(Monday)
 
 const Tuesday = Ttable.filter((days) => {
   return days.day == 'tue'
 })
-console.log(Tuesday)
 
 const Wednesday = Ttable.filter((days) => {
   return days.day == 'wed'
 })
-console.log(Wednesday)
 
 const Thursday = Ttable.filter((days) => {
   return days.day == 'thu'
 })
-console.log(Thursday)
 
 const Friday = Ttable.filter((days) => {
   return days.day == 'fri'
 })
-console.log(Friday)
 
 const Saturday = Ttable.filter((days) => {
   return days.day == 'sat'
 })
-console.log(Saturday)
 
 const Sunday = Ttable.filter((days) => {
   return days.day == 'sun'
 })
-console.log(Sunday)
 //Display appropiate content for each day end
 
 //Rendering array to DOM
 Monday.forEach(function (doc) {
-  console.log(doc)
   mon(doc)
 })
 
 Tuesday.forEach(function (doc) {
-  console.log(doc)
   tue(doc)
 })
 
 Wednesday.forEach(function (doc) {
-  console.log(doc)
   wed(doc)
 })
 
 Thursday.forEach(function (doc) {
-  console.log(doc)
   thu(doc)
 })
 
 Friday.forEach(function (doc) {
-  console.log(doc)
   fri(doc)
 })
 
 Saturday.forEach(function (doc) {
-  console.log(doc)
   sat(doc)
 })
 
 Sunday.forEach(function (doc) {
-  console.log(doc)
   sun(doc)
 })
 
