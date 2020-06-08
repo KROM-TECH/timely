@@ -139,16 +139,17 @@ Ttable.forEach(function (doc) {
 
 
 function del(data) {
+  let len = document.getElementsByClassName('rend').length
   const html = `
-      <p style= "font-size:14px">
+      <p class="rend" style= "font-size:14px">
           <span style="margin:0.5rem;">${data.day}</span>
           <span style="margin:0.5rem;">${data.sub}</span>
           <span style="margin:0.5rem;">${data.tim}</span> <br>
-          <span class="center" style="margin:0.5rem;"><i class="red-text material-icons" id="${data.id}">delete</i></span>
+          <span class="center" style="margin:0.5rem;"><i class="red-text material-icons" id="${len}">delete</i></span>
       </p>
           
     `;
-
+console.log(len)
   deleter.innerHTML += html
 }
 

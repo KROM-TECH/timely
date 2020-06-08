@@ -252,8 +252,12 @@
 
 
   <script>
+    console.log(document.getElementsByClassName('rend').length-1)
 document.getElementById('deleter').addEventListener('click', function(e){
   if(e.target.tagName === 'I'){
+    console.log(e)
+    const index = Ttable.indexOf(e.target.id);
+    console.log(index)
     console.log(e.target.id)
     let delID = e.target.id
    let upNEW = Ttable.splice(delID, 1)
