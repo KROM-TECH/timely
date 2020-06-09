@@ -7,21 +7,21 @@ const Tthu = document.getElementById('Tthu')
 const Tfri = document.getElementById('Tfri')
 const Tsat = document.getElementById('Tsat')
 const Tsun = document.getElementById('Tsun')
-    
-//make fab disappear when scrolling down
-    window.onscroll = function () { myFunction() };
-    var prevScrollpos = window.pageYOffset;
-    function myFunction() {
-      var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        document.getElementById('fab').style.display = 'block';
-      } else {
-        document.getElementById('fab').style.display = 'none';
-      }
-      prevScrollpos = currentScrollPos;
-    }
 
-    //listen to slider to adjust time
+//make fab disappear when scrolling down
+window.onscroll = function () { myFunction() };
+var prevScrollpos = window.pageYOffset;
+function myFunction() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById('fab').style.display = 'block';
+  } else {
+    document.getElementById('fab').style.display = 'none';
+  }
+  prevScrollpos = currentScrollPos;
+}
+
+//listen to slider to adjust time
 const ftime = document.getElementById('ftime')
 ftime.addEventListener('change', function () {
   document.getElementById('fST').innerHTML = ftime.value
@@ -59,21 +59,21 @@ tcheck.addEventListener('change', function () {
 })
 
 
- // to check the sub input field and reduce input
-    document.getElementById('TtSubject').addEventListener('input', function () {
-      let num = document.getElementById('TtSubject').value
-      if (num.length > 12) {
-        let shorten = num.substring(0, 11);
-       document.getElementById('TtSubject').value = shorten
-      } else { }
-    });
+// to check the sub input field and reduce input
+document.getElementById('TtSubject').addEventListener('input', function () {
+  let num = document.getElementById('TtSubject').value
+  if (num.length > 12) {
+    let shorten = num.substring(0, 11);
+    document.getElementById('TtSubject').value = shorten
+  } else { }
+});
 
-    //Created a class so a new instance object can be call each time the save button is clicked
-    class Tt {
-      constructor(id, day, sub, tim, ) {
-        return { id: id, day: day, sub: sub, tim: tim }
-      }
-    }
+//Created a class so a new instance object can be call each time the save button is clicked
+class Tt {
+  constructor(id, day, sub, tim, ) {
+    return { id: id, day: day, sub: sub, tim: tim }
+  }
+}
 
 
 // add an event listener to the save button event
@@ -88,10 +88,8 @@ document.getElementById('save').addEventListener('click', function () {
 
     //check for already existing value
     if (localStorage.getItem('timeTable') == null) {
-      console.log('hello')
       var id = 0
     } else {
-      console.log('else')
       var id = JSON.parse(localStorage.getItem('timeTable')).length //uses the arrays length as an identifial
       // console.log(new Tt(days,TtSubject, Ttime))
     }
@@ -126,7 +124,7 @@ document.getElementById('save').addEventListener('click', function () {
 
     addToLocalStorageArray(NEW)
 
-  
+
   }
 
   location.reload()
@@ -135,7 +133,6 @@ document.getElementById('save').addEventListener('click', function () {
 
 //loop through the array to output each object to the del modal
 Ttable.forEach(function (doc) {
-  console.log(doc)
   del(doc)
 })
 
@@ -151,12 +148,10 @@ function del(data) {
       </p>
           
     `;
-console.log(len)
+
   deleter.innerHTML += html
 }
 
-console.log(localStorage)
-console.log(JSON.parse(localStorage.getItem('timeTable')))
 
 
 //Display appropiate content for each day
@@ -277,4 +272,26 @@ function sun(data) {
   Tsun.innerHTML += html
 }
 
-//function to render
+//function to render end
+
+//react to the trash bin icon click 
+document.getElementById('deleter').addEventListener('click', function (e) {
+  if (e.target.tagName === 'I') {
+
+    let delID = e.target.id
+    let upNEW = Ttable.splice(delID, 1)
+
+    localStorage.setItem('timeTable', JSON.stringify(Ttable));
+    deleter.innerHTML = ''
+    Ttable.forEach(function (doc) {
+      del(doc)
+    })
+  }
+})
+
+
+// reload the page each time the modal closes to update the dom
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('#delete');
+  var instances = M.Modal.init(elems, { onCloseEnd: function () { location.reload() } });
+});

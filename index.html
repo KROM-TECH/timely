@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html lang="en">
 
 <head>
   <!--Import Google Icon Font-->
@@ -8,6 +8,7 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <link type="text/css" rel="stylesheet" href="css/custom.css" media="screen,projection" />
   <!--Let browser know website is optimized for mobile-->
+  <title>Timely</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="dark-blue">
@@ -16,6 +17,7 @@
   <meta name="description" content="A simple time management app">
   <meta name="theme-color" content="#151B54" />
   <link rel="manifest" href="./manifest.json">
+  <script src="./js/index.js"></script>
 
 </head>
 
@@ -259,35 +261,7 @@
 
 
   <script>
-    console.log(document.getElementsByClassName('rend').length-1)
-document.getElementById('deleter').addEventListener('click', function(e){
-  if(e.target.tagName === 'I'){
 
-    let delID = e.target.id
-   let upNEW = Ttable.splice(delID, 1)
-
-  localStorage.setItem('timeTable', JSON.stringify(Ttable));
-  deleter.innerHTML = ''
-  Ttable.forEach(function (doc) {
-      console.log(doc)
-      del(doc)      
-    })
-    
-
-
-
-
-  }
-})
-
-    // document.querySelector('.modal-trigger').modal({
-    //   onCloseEnd: function(){location.reload()}
-    // })
-    
-      document.addEventListener('DOMContentLoaded', function () {
-          var elems = document.querySelectorAll('#delete');
-          var instances = M.Modal.init(elems, { onCloseEnd: function () { location.reload() }});
-        });
   </script>
 
 </body>
