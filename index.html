@@ -1,4 +1,4 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,10 +24,44 @@
 
 <body class="lin">
   <section>
-    <div id="test1" class="col s12">
+    <div id="test1" class="col s12" class="active">
+      <h5 class="col s10 center red-text darken-3 valign-wrapper" style="margin-left: 11rem;"> Task <i
+          class="material-icons norm white-text modal-trigger" href="#taskdelete" style="margin-left: 3rem;">delete</i></h5>
 
+      <div class="col" style="padding-top: 3em; padding-right: 3em;">
+        <p style="padding-left: 3em;">
+          <label>
+            <input type="checkbox" />
+            <span class="white-text lighten-5">check if there is a way to fly abroad with a broom </span> 
+            <br>
+             <span style="margin-left: 3em; color:#d50000;">6pm to 4pm</span>
+          </label>
+        </p>
+
+        <p style="padding-left: 3em;">
+          <label>
+            <input type="checkbox" />
+            <span class="white-text lighten-5">Ask Daniel to teach me yahoo, this life is hard sha but we move mafo</span> 
+            <br>
+             <span style="margin-left: 3em; color:#d50000;">6pm to 12am</span>
+          </label>
+        </p>
+      </div>
+
+
+            <div id="taskdelete" class="modal">
+              <div id="taskdeleter" class="modal-content">
+            
+            
+              </div>
+            
+            </div>
+      <div class="row right" style="height: rem;">
+        <a id="fab" class="fab btn-floating btn-large waves-effect waves-light red darken-4 modal-trigger" href="#"><i
+            class="material-icons">add</i></a>
+      </div>
     </div>
-    <div id="test2" class="col s12">
+    <div id="Ttable" class="col s12">
       <h5 class="col s10 center blue-text valign-wrapper" style="margin-left: 9rem;"> TimeTable <i
           class="material-icons norm white-text modal-trigger" href="#delete" style="margin-left: 3rem;">delete</i></h5>
 
@@ -140,82 +174,90 @@
         <!-- Modal Structure -->
         <div id="modal1" class="modal blue-text darken-4" style="border-radius: 1rem; width: 90%; overflow-x: hidden;">
           <div class="modal-content center">
-            
-              <h5>Details</h5>
-              <div class="col s12">
-                <select id="days" required />
-                <option value="" disabled selected>Choose your option</option>
-                <option value="mon">Monday</option>
-                <option value="tue">Tuesday</option>
-                <option value="wed">Wednesday</option>
-                <option value="thu">Thursday</option>
-                <option value="fri">Friday</option>
-                <option value="sat">Saturday</option>
-                <option value="sun">Sunday</option>
-                </select>
-                <label>Which Day?</label>
-              </div>
 
-              <div class="input-field col s12">
-                <input id="TtSubject" type="text" required />
-                <label for="TtSubject">Subject</label>
-                <span class="helper-text" >input can't exceed 11 characters</span>
+            <h5>Details</h5>
+            <div class="col s12">
+              <select id="days" required />
+              <option value="" disabled selected>Choose your option</option>
+              <option value="mon">Monday</option>
+              <option value="tue">Tuesday</option>
+              <option value="wed">Wednesday</option>
+              <option value="thu">Thursday</option>
+              <option value="fri">Friday</option>
+              <option value="sat">Saturday</option>
+              <option value="sun">Sunday</option>
+              </select>
+              <label>Which Day?</label>
+            </div>
 
-              </div>
+            <div class="input-field col s12">
+              <input id="TtSubject" type="text" required />
+              <label for="TtSubject">Subject</label>
+              <span class="helper-text">input can't exceed 11 characters</span>
+
+            </div>
+            <div class="row">
+              <p class="range-field">
+                <label for="time">from</label>
+                <input type="range" id="ftime" min="0" max="12" />
+
+              </p>
+
               <div class="row">
-                <p class="range-field">
-                  <label for="time">from</label>
-                  <input type="range" id="ftime" min="0" max="12" />
-
-                </p>
-
-                <div class="row">
-                  <!-- Switch -->
-                  <div class="col left switch">
-                    <label>
-                      AM
-                      <input id="fcheck" type="checkbox">
-                      <span class="lever"></span>
-                      PM
-                    </label>
-                  </div>
-                  <div class="col right" id="fTtime"><span id="fST">6</span><span id="fper">AM</span></div>
+                <!-- Switch -->
+                <div class="col left switch">
+                  <label>
+                    AM
+                    <input id="fcheck" type="checkbox">
+                    <span class="lever"></span>
+                    PM
+                  </label>
                 </div>
+                <div class="col right" id="fTtime"><span id="fST">6</span><span id="fper">AM</span></div>
               </div>
+            </div>
+            <div class="row">
+              <p class="range-field">
+                <label for="time">to</label>
+                <input type="range" id="ttime" min="0" max="12" />
+
+              </p>
+
               <div class="row">
-                <p class="range-field">
-                  <label for="time">to</label>
-                  <input type="range" id="ttime" min="0" max="12" />
-
-                </p>
-
-                <div class="row">
-                  <!-- Switch -->
-                  <div class="col left switch">
-                    <label>
-                      AM
-                      <input id="tcheck" type="checkbox">
-                      <span class="lever"></span>
-                      PM
-                    </label>
-                  </div>
-                  <div class="col right" id="tTtime"><span id="tST">6</span><span id="tper">AM</span></div>
+                <!-- Switch -->
+                <div class="col left switch">
+                  <label>
+                    AM
+                    <input id="tcheck" type="checkbox">
+                    <span class="lever"></span>
+                    PM
+                  </label>
                 </div>
+                <div class="col right" id="tTtime"><span id="tST">6</span><span id="tper">AM</span></div>
               </div>
-              <div class="center row">
-                <p id="sumTime"><span id="ft">6</span><span id="ftt">AM</span> to <span id="tt">6</span><span
-                    id="ttt">AM</span></p>
-              </div>
-              <div class="row center">
-                <a id="save" class="modal-close waves-effect waves-green btn-flat">save</a>
-              </div>
-            
+            </div>
+            <div class="center row">
+              <p id="sumTime"><span id="ft">6</span><span id="ftt">AM</span> to <span id="tt">6</span><span
+                  id="ttt">AM</span></p>
+            </div>
+            <div class="row center">
+              <a id="save" class="modal-close waves-effect waves-green btn-flat">save</a>
+            </div>
+
           </div>
         </div>
       </section>
 
     </div>
-    <div id="test3" class="col s12">Test 3</div>
+    <div id="test3" class="col s12">
+      <h5 class="col s10 center green-text darken-3 valign-wrapper" style="margin-left: 11rem;"> Task <i
+          class="material-icons norm white-text modal-trigger" href="#" style="margin-left: 3rem;">delete</i></h5>
+
+      <div class="row right" style="height: rem;">
+        <a id="fab" class="fab btn-floating btn-large waves-effect waves-light green darken-3 modal-trigger" href="#"><i
+            class="material-icons">add</i></a>
+      </div>
+    </div>
   </section>
   <section>
     <div class="botnav row">
@@ -228,7 +270,7 @@
               </div>
             </a></li>
 
-          <li class="tab col center s4 m4 l4"><a href="#test2" class="active">
+          <li class="tab col center s4 m4 l4"><a href="#Ttable">
               <div class="" style="padding: 1rem;">
                 <i class="white-text norm material-icons">apps</i>
               </div>
