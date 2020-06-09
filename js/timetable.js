@@ -77,13 +77,14 @@ class Tt {
 
 
 // add an event listener to the save button event
-document.getElementById('save').addEventListener('click', function () {
+document.getElementById('save').addEventListener('click', function (e) {
+  e.preventDefault()
   //gets the values
   const days = document.getElementById('days').value
   const TtSubject = document.getElementById('TtSubject').value
   const Ttime = document.getElementById('sumTime').innerText
 
-  if (days == "" || TtSubject == "") { alert('you need to fill in day and subject') }
+  if (days == "" || TtSubject == "") { document.getElementById('TtWarning').style.display = 'block' }
   else {
 
     //check for already existing value
@@ -124,10 +125,10 @@ document.getElementById('save').addEventListener('click', function () {
 
     addToLocalStorageArray(NEW)
 
-
+    location.reload()
   }
 
-  location.reload()
+  
 
 })
 
