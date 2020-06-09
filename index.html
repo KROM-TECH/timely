@@ -24,23 +24,32 @@
 
 <body class="lin">
   <section>
-    <div id="test1" class="col s12" class="active">
+    <div id="task" class="col s12" class="active">
       <h5 class="col s10 center red-text darken-3 valign-wrapper" style="margin-left: 11rem;"> Task <i
           class="material-icons norm white-text modal-trigger" href="#taskdelete" style="margin-left: 3rem;">delete</i></h5>
 
-      <div class="col" style="padding-top: 3em; padding-right: 3em;">
+      <div id="taskBody" class="col" style="padding-top: 3em; padding-right: 3em;">
         <p style="padding-left: 3em;">
           <label>
-            <input type="checkbox" />
-            <span class="white-text lighten-5">check if there is a way to fly abroad with a broom </span> 
+            <input id="taskCheck1" type="checkbox" />
+            <span class="white-text lighten-5 taskC1">check if there is a way to fly abroad with a broom </span> 
             <br>
-             <span style="margin-left: 3em; color:#d50000;">6pm to 4pm</span>
+             <span class="taskC1" style="margin-left: 3em; color:#d50000;">6pm to 4pm</span>
           </label>
         </p>
 
         <p style="padding-left: 3em;">
           <label>
-            <input type="checkbox" />
+            <input id="taskCheck2" type="checkbox" />
+            <span id="taskC2" class="white-text lighten-5 blur">check if there is a way to fly abroad with a broom </span> 
+            <br>
+             <span id="taskC2" style="margin-left: 3em; color:#d50000;">6pm to 4pm</span>
+          </label>
+        </p>
+
+        <p style="padding-left: 3em;">
+          <label>
+            <input  type="checkbox" />
             <span class="white-text lighten-5">Ask Daniel to teach me yahoo, this life is hard sha but we move mafo</span> 
             <br>
              <span style="margin-left: 3em; color:#d50000;">6pm to 12am</span>
@@ -264,7 +273,7 @@
       <div class="row">
 
         <div class="tabs">
-          <li class="tab col center s4 m4 l4"><a href="#test1">
+          <li class="tab col center s4 m4 l4"><a href="#task">
               <div style="padding: 1rem;">
                 <span><i class="white-text norm material-icons">alarm</i></span>
               </div>
@@ -304,6 +313,21 @@
 
 
   <script>
+
+    // document.getElementById('taskBody').addEventListener('change', function(e){
+    //  items = document.querySelectorAll('.taskC1');
+    //  thing = document.getElementById(`${e.target.id}`)
+    //  console.log(thing)
+    //  if(thing.checked == true){
+    //    for (var i = 0; i < items.length; i++) {
+    //     items[i].style.opacity = '0.1';}
+
+    //   }else{
+    //            for (var i = 0; i < items.length; i++) {
+    //      items[i].style.opacity = '1';
+    //    }
+    //   }
+    // })
 
   </script>
 

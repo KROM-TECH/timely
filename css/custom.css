@@ -55,11 +55,15 @@
 .lin {
   background-color: #151B54;
   font-family: 'Fredoka One', cursive;
-
 }
 
 .fab {
   position: fixed;
   bottom: 70px;
   right: 30px;
+}
+
+.textshadow .blur {
+  color: transparent !important;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5) !important;
 }
