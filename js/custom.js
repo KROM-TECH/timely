@@ -126,8 +126,10 @@ document.getElementById('save').addEventListener('click', function () {
 
     addToLocalStorageArray(NEW)
 
-    location.reload()
+  
   }
+
+  location.reload()
 
 })
 

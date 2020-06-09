@@ -7,9 +7,16 @@
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
   <link type="text/css" rel="stylesheet" href="css/custom.css" media="screen,projection" />
-
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="dark-blue">
+  <meta name="apple-mobile-web-app-title" content="timely PWA">
+  <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
+  <meta name="description" content="A simple time management app">
+  <meta name="theme-color" content="#2F3BA2" />
+  <link rel="manifest" href="./manifest.json">
+
 </head>
 
 <body class="lin">
@@ -255,24 +262,32 @@
     console.log(document.getElementsByClassName('rend').length-1)
 document.getElementById('deleter').addEventListener('click', function(e){
   if(e.target.tagName === 'I'){
-    console.log(e)
-    const index = Ttable.indexOf(e.target.id);
-    console.log(index)
-    console.log(e.target.id)
+
     let delID = e.target.id
    let upNEW = Ttable.splice(delID, 1)
-   console.log(Ttable)
 
   localStorage.setItem('timeTable', JSON.stringify(Ttable));
   deleter.innerHTML = ''
   Ttable.forEach(function (doc) {
       console.log(doc)
-      del(doc)
+      del(doc)      
     })
+    
+
+
 
 
   }
 })
+
+    // document.querySelector('.modal-trigger').modal({
+    //   onCloseEnd: function(){location.reload()}
+    // })
+    
+      document.addEventListener('DOMContentLoaded', function () {
+          var elems = document.querySelectorAll('#delete');
+          var instances = M.Modal.init(elems, { onCloseEnd: function () { location.reload() }});
+        });
   </script>
 
 </body>
