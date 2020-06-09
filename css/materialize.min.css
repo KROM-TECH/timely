@@ -4823,13 +4823,13 @@ small {
 }
 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
-  background-color: rgba(246, 178, 181, 0.2);
+  background-color: rgb(21, 27, 84, 0.3);
   outline: none
 }
 
 .tabs .tab a:hover, .tabs .tab a.active {
   background-color: transparent;
-  color: #ee6e73
+  color: #151B54
 }
 
 .tabs .tab.disabled a, .tabs .tab.disabled a:hover {
@@ -4841,7 +4841,7 @@ small {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #f6b2b5;
+  background-color: #151B54;
   will-change: left, right
 }
 
@@ -6220,7 +6220,7 @@ textarea.materialize-textarea {
   height: 18px;
   z-index: 0;
   border: 2px solid #771313;
-  border-radius: 1px;
+  border-radius: 10px;
   margin-top: 3px;
   -webkit-transition: .2s;
   transition: .2s
