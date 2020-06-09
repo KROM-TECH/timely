@@ -125,7 +125,7 @@ document.getElementById('save').addEventListener('click', function (e) {
 
     addToLocalStorageArray(NEW)
 
-    location.reload()
+
   }
 
   
@@ -294,5 +294,142 @@ document.getElementById('deleter').addEventListener('click', function (e) {
 // reload the page each time the modal closes to update the dom
 document.addEventListener('DOMContentLoaded', function () {
   var elems = document.querySelectorAll('#delete');
-  var instances = M.Modal.init(elems, { onCloseEnd: function () { location.reload() } });
+  var instances = M.Modal.init(elems, {
+    onCloseEnd: function () { //Rendering array to DOM
+      const Monday = Ttable.filter((days) => {
+        return days.day == 'mon'
+      })
+
+      const Tuesday = Ttable.filter((days) => {
+        return days.day == 'tue'
+      })
+
+      const Wednesday = Ttable.filter((days) => {
+        return days.day == 'wed'
+      })
+
+      const Thursday = Ttable.filter((days) => {
+        return days.day == 'thu'
+      })
+
+      const Friday = Ttable.filter((days) => {
+        return days.day == 'fri'
+      })
+
+      const Saturday = Ttable.filter((days) => {
+        return days.day == 'sat'
+      })
+
+      const Sunday = Ttable.filter((days) => {
+        return days.day == 'sun'
+      })
+      
+      Tmon.innerHTML = ''
+      Ttue.innerHTML = ''
+      Twed.innerHTML = ''
+      Tthu.innerHTML = ''
+      Tfri.innerHTML = ''
+      Tsat.innerHTML = ''
+      Tsun.innerHTML = ''
+      Monday.forEach(function (doc) {
+        mon(doc)
+        console.log('m')
+      })
+
+      Tuesday.forEach(function (doc) {
+        tue(doc)
+        console.log('t')
+      })
+
+      Wednesday.forEach(function (doc) {
+        wed(doc)
+      })
+
+      Thursday.forEach(function (doc) {
+        thu(doc)
+      })
+
+      Friday.forEach(function (doc) {
+        fri(doc)
+      })
+
+      Saturday.forEach(function (doc) {
+        sat(doc)
+      })
+
+      Sunday.forEach(function (doc) {
+        sun(doc)
+      }) } });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('#TtModal');
+  var instances = M.Modal.init(elems, {
+    onCloseEnd: function () { //Rendering array to DOM
+      const Monday = Ttable.filter((days) => {
+        return days.day == 'mon'
+      })
+
+      const Tuesday = Ttable.filter((days) => {
+        return days.day == 'tue'
+      })
+
+      const Wednesday = Ttable.filter((days) => {
+        return days.day == 'wed'
+      })
+
+      const Thursday = Ttable.filter((days) => {
+        return days.day == 'thu'
+      })
+
+      const Friday = Ttable.filter((days) => {
+        return days.day == 'fri'
+      })
+
+      const Saturday = Ttable.filter((days) => {
+        return days.day == 'sat'
+      })
+
+      const Sunday = Ttable.filter((days) => {
+        return days.day == 'sun'
+      })
+
+      Tmon.innerHTML = ''
+      Ttue.innerHTML = ''
+      Twed.innerHTML = ''
+      Tthu.innerHTML = ''
+      Tfri.innerHTML = ''
+      Tsat.innerHTML = ''
+      Tsun.innerHTML = ''
+      Monday.forEach(function (doc) {
+        mon(doc)
+        console.log('m')
+      })
+
+      Tuesday.forEach(function (doc) {
+        tue(doc)
+        console.log('t')
+      })
+
+      Wednesday.forEach(function (doc) {
+        wed(doc)
+      })
+
+      Thursday.forEach(function (doc) {
+        thu(doc)
+      })
+
+      Friday.forEach(function (doc) {
+        fri(doc)
+      })
+
+      Saturday.forEach(function (doc) {
+        sat(doc)
+      })
+
+      Sunday.forEach(function (doc) {
+        sun(doc)
+      })
+    }
+  });
 });

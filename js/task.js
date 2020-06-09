@@ -1,5 +1,6 @@
 const task = JSON.parse(localStorage.getItem('task'))
 const taskdeleter = document.getElementById('taskdeleter');
+const taskBody = document.getElementById('taskBody');
 
 //reacts to the time picker event
 document.getElementById('taskTimeFrom').addEventListener('change', function () {
@@ -15,8 +16,8 @@ document.getElementById('taskTimeTo').addEventListener('change', function () {
 
 //Created a class so a new instance object can be call each time the save button is clicked
 class tas {
-  constructor( sub, tim, ) {
-    return {task: sub, Ttime: tim }
+  constructor(sub, tim, ) {
+    return { task: sub, Ttime: tim }
   }
 }
 
@@ -61,7 +62,7 @@ document.getElementById('saveTask').addEventListener('click', function () {
     location.reload()
   }
 
-  
+
 
 })
 console.log(localStorage.getItem('task'))
@@ -83,3 +84,49 @@ function deltask(data) {
     `;
   taskdeleter.innerHTML += html
 }
+
+//react to the trash bin icon click 
+document.getElementById('taskdeleter').addEventListener('click', function (e) {
+  if (e.target.tagName === 'I') {
+
+    let delID = e.target.id
+    let upNEW = task.splice(delID, 1)
+
+    localStorage.setItem('task', JSON.stringify(task));
+    taskdeleter.innerHTML = ''
+    task.forEach(function (doc) {
+      deltask(doc)
+    })
+  }
+})
+
+//rendering to the main page
+function taskMain(data) {
+  const html = `
+    <p style="padding-left: 3em;">
+          <label>
+            <input id="taskCheck1" type="checkbox" />
+            <span class="white-text lighten-5 taskC1">${data.task}</span> 
+            <br>
+             <span class="taskC1" style="margin-left: 3em; color:#d50000;">${data.Ttime}</span>
+          </label>
+        </p>          
+    `;
+
+  taskBody.innerHTML += html
+}
+
+task.forEach(function (doc) {
+  taskMain(doc)
+})
+
+// reload the page each time the modal closes to update the dom
+document.addEventListener('DOMContentLoaded', function () {
+  var elems = document.querySelectorAll('#taskdelete');
+  var instances = M.Modal.init(elems, {
+    onCloseEnd: function () {
+      taskBody.innerHTML = ''
+      task.forEach(function (doc) {
+        taskMain(doc)
+      }) } });
+});
