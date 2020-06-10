@@ -4823,7 +4823,6 @@ small {
 }
 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
-  background-color: rgb(21, 27, 84, 0.3);
   outline: none
 }
 
@@ -4841,7 +4840,6 @@ small {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #151B54;
   will-change: left, right
 }
 
