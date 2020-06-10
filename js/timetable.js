@@ -276,6 +276,7 @@ document.getElementById('deleter').addEventListener('click', function (e) {
   if (e.target.tagName === 'I') {
 
     let delID = e.target.id
+    console.log(delID)
     let upNEW = Ttable.splice(delID, 1)
 
     localStorage.setItem('timeTable', JSON.stringify(Ttable));

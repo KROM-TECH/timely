@@ -24,89 +24,6 @@
 
 <body class="lin">
   <section>
-    <div id="task" class="col s12" >
-      <h5 class="col s10 center red-text darken-3 valign-wrapper" style="margin-left: 11rem;"> Task <i
-          class="material-icons norm white-text modal-trigger" href="#taskdelete" style="margin-left: 3rem;">delete</i></h5>
-
-          <div id="taskdelete" class="modal">
-            <div id="taskdeleter" class="modal-content">
-          
-          
-            </div>
-          
-          </div>
-
-      <div id="taskBody" class="col" style="padding-top: 3em; padding-right: 3em;">
-        <p style="padding-left: 3em;">
-          <label>
-            <input id="taskCheck1" type="checkbox" />
-            <span class="white-text lighten-5 taskC1">check if there is a way to fly abroad with a broom </span> 
-            <br>
-             <span class="taskC1" style="margin-left: 3em; color:#d50000;">6pm to 4pm</span>
-          </label>
-        </p>
-
-        <p style="padding-left: 3em;">
-          <label>
-            <input id="taskCheck2" type="checkbox" />
-            <span id="taskC2" class="white-text lighten-5 blur">check if there is a way to fly abroad with a broom </span> 
-            <br>
-             <span id="taskC2" style="margin-left: 3em; color:#d50000;">6pm to 4pm</span>
-          </label>
-        </p>
-
-        <p style="padding-left: 3em;">
-          <label>
-            <input  type="checkbox" />
-            <span class="white-text lighten-5">Ask Daniel to teach me yahoo, this life is hard sha but we move mafo</span> 
-            <br>
-             <span style="margin-left: 3em; color:#d50000;">6pm to 12am</span>
-          </label>
-        </p>
-      </div>
-
-
-
-
-                  <section>
-                    <!-- Modal Structure -->
-                    <div id="taskModal" class="modal blue-text darken-4" style="border-radius: 1rem; width: 90%; overflow-x: hidden;">
-                      <div class="modal-content center">
-                  
-                        <h5 class="red-text">Details</h5>
-           
-                  
-                        <div class="input-field col s12">
-                          <input id="taskSubject" type="text" required />
-                          <label for="taskSubject">Task</label>                  
-                        </div>
-                        <label for="taskTimeFrom">from</label>
-                        <input id="taskTimeFrom" type="text" class="timepicker" >
-
-                        <label for="taskTimeTo">to</label>
-                        <input id="taskTimeTo" type="text" class="timepicker" >
-                        <div class="row">
-                          <p id="showTaskTime" style="color:#d50000;"><span id="TTF"></span> to <span id="TTT"></span></p>
-                        </div>
-                                      
-                             
-              <p id="taskWarning" class="center red-text" style="display: none;">Fill task value</p>
-                        <div class="row center" style="margin-top: 7em;">
-                          <a id="saveTask" class=" waves-effect waves-red btn-flat">save</a>
-                        </div>
-                  
-                      </div>
-                    </div>
-                  </section>
-      <div class="row right" style="height: rem;">
-        <a id="fab" class="fab btn-floating btn-large waves-effect waves-light red darken-4 modal-trigger" href="#taskModal"><i
-            class="material-icons">add</i></a>
-      </div>
-    </div>
-
-
-
-
     <div id="Ttable" class="col s12 active">
       <h5 class="col s10 center blue-text valign-wrapper" style="margin-left: 9rem;"> TimeTable <i
           class="material-icons norm white-text modal-trigger" href="#delete" style="margin-left: 3rem;">delete</i></h5>
@@ -300,34 +217,26 @@
 
 
 
-    <div id="test3" class="col s12">
-      <h5 class="col s10 center green-text darken-3 valign-wrapper" style="margin-left: 11rem;"> Event <i
-          class="material-icons norm white-text modal-trigger" href="#" style="margin-left: 3rem;">delete</i></h5>
 
-      <div class="row right" style="height: rem;">
-        <a id="fab" class="fab btn-floating btn-large waves-effect waves-light green darken-3 modal-trigger" href="#"><i
-            class="material-icons">add</i></a>
-      </div>
-    </div>
   </section>
   <section>
     <div class="botnav row">
       <div class="row">
 
         <div class="tabs">
-          <li class="tab col center s4 m4 l4"><a href="#task">
+          <li class="tab col center s4 m4 l4"><a href="./task.html" target="_self">
               <div style="padding: 1rem;">
                 <span><i class="white-text norm material-icons">alarm</i></span>
               </div>
             </a></li>
 
-          <li class="tab col center s4 m4 l4"><a href="#Ttable">
+          <li class="tab col center s4 m4 l4"><a href="./timetable.html" target="_self">
               <div class="" style="padding: 1rem;">
                 <i class="white-text norm material-icons">apps</i>
               </div>
             </a></li>
 
-          <li class="tab col center s4 m4 l4"><a href="#test3">
+          <li class="tab col center s4 m4 l4"><a href="./event.html" target="_self">
               <div class="" style="padding: 1rem;">
                 <i class="white-text norm material-icons">assignment_turned_in</i>
               </div>
@@ -350,8 +259,7 @@
        https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
   <script src="./js/fireconfig.js"></script>
-  <script src="./js/task.js"></script>
-    <script src="./js/timetable.js"></script>
+  <script src="./js/timetable.js"></script>
 
 
 
