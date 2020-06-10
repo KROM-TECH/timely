@@ -80,7 +80,7 @@ document.getElementById('eventBody').addEventListener('click', function (e) {
 function eventMain(data) {
   let len = document.getElementsByClassName('ren').length
   const html = `
-                    <div class="row" style="margin-bottom:0px !important;">
+                    <div class="row ren" style="margin-bottom:0px !important;">
                       <div class="col">
                         <span><i class="material-icons white-text" id="${len}" style="margin-top: 1.5rem; margin-left: 2rem;">delete</i></span>
                       </div>

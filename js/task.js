@@ -67,50 +67,40 @@ document.getElementById('saveTask').addEventListener('click', function () {
 })
 console.log(localStorage.getItem('task'))
 
-//loop through the array to output each object to the del modal
-task.forEach(function (doc) {
-  deltask(doc)
-})
-
-
-function deltask(data) {
-  let len = document.getElementsByClassName('rend').length
-  const html = `
-      <p class="rend" style= "font-size:14px">
-          <span style="margin:0.5rem;">${data.task}</span>
-          <span style="margin:0.5rem;">${data.Ttime}</span> <br>
-          <span class="center" style="margin:0.5rem;"><i class="red-text material-icons" id="${len}">delete</i></span>
-      </p>          
-    `;
-  taskdeleter.innerHTML += html
-}
 
 //react to the trash bin icon click 
-document.getElementById('taskdeleter').addEventListener('click', function (e) {
+document.getElementById('taskBody').addEventListener('click', function (e) {
   if (e.target.tagName === 'I') {
 
     let delID = e.target.id
     let upNEW = task.splice(delID, 1)
 
     localStorage.setItem('task', JSON.stringify(task));
-    taskdeleter.innerHTML = ''
+    taskBody.innerHTML = ''
     task.forEach(function (doc) {
-      deltask(doc)
+      taskMain(doc)
     })
   }
 })
 
 //rendering to the main page
 function taskMain(data) {
+  let len = document.getElementsByClassName('rend').length
   const html = `
-    <p style="padding-left: 3em;">
-          <label>
-            <input id="taskCheck1" type="checkbox" />
-            <span class="white-text lighten-5 taskC1">${data.task}</span> 
-            <br>
-             <span class="taskC1" style="margin-left: 3em; color:#d50000;">${data.Ttime}</span>
-          </label>
-        </p>          
+               <div class="row rend" style="margin-bottom:0px !important;">
+                      <div class="col">
+                        <span><i class="material-icons white-text" id="${len}" style="margin-top: 1.5rem; margin-left: 2rem;">delete</i></span>
+                      </div>
+                      <div class="col">
+                            <p>
+                              <label>
+                                <span class="white-text lighten-5 eventC1">${data.task}</span>
+                                <br>
+                                <span style="color:#d50000;">${data.Ttime}</span>
+                              </label>
+                            </p>
+                      </div>
+                    </div>     
     `;
 
   taskBody.innerHTML += html
@@ -120,13 +110,3 @@ task.forEach(function (doc) {
   taskMain(doc)
 })
 
-// reload the page each time the modal closes to update the dom
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('#taskdelete');
-  var instances = M.Modal.init(elems, {
-    onCloseEnd: function () {
-      taskBody.innerHTML = ''
-      task.forEach(function (doc) {
-        taskMain(doc)
-      }) } });
-});
