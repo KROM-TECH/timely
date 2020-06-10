@@ -7,6 +7,7 @@ const Tthu = document.getElementById('Tthu')
 const Tfri = document.getElementById('Tfri')
 const Tsat = document.getElementById('Tsat')
 const Tsun = document.getElementById('Tsun')
+console.log(Ttable)
 
 //make fab disappear when scrolling down
 window.onscroll = function () { myFunction() };
@@ -119,18 +120,13 @@ document.getElementById('save').addEventListener('click', function (e) {
         // Save back to localStorage
         localStorage.setItem('timeTable', JSON.stringify(existing));
       }
-
-
     };
-
     addToLocalStorageArray(NEW)
-
-
   }
 
-  
-
+  location.reload()  
 })
+
 
 //loop through the array to output each object to the del modal
 Ttable.forEach(function (doc) {
@@ -284,6 +280,7 @@ document.getElementById('deleter').addEventListener('click', function (e) {
 
     localStorage.setItem('timeTable', JSON.stringify(Ttable));
     deleter.innerHTML = ''
+    console.log('done')
     Ttable.forEach(function (doc) {
       del(doc)
     })
@@ -362,74 +359,5 @@ document.addEventListener('DOMContentLoaded', function () {
       }) } });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('#TtModal');
-  var instances = M.Modal.init(elems, {
-    onCloseEnd: function () { //Rendering array to DOM
-      const Monday = Ttable.filter((days) => {
-        return days.day == 'mon'
-      })
 
-      const Tuesday = Ttable.filter((days) => {
-        return days.day == 'tue'
-      })
 
-      const Wednesday = Ttable.filter((days) => {
-        return days.day == 'wed'
-      })
-
-      const Thursday = Ttable.filter((days) => {
-        return days.day == 'thu'
-      })
-
-      const Friday = Ttable.filter((days) => {
-        return days.day == 'fri'
-      })
-
-      const Saturday = Ttable.filter((days) => {
-        return days.day == 'sat'
-      })
-
-      const Sunday = Ttable.filter((days) => {
-        return days.day == 'sun'
-      })
-
-      Tmon.innerHTML = ''
-      Ttue.innerHTML = ''
-      Twed.innerHTML = ''
-      Tthu.innerHTML = ''
-      Tfri.innerHTML = ''
-      Tsat.innerHTML = ''
-      Tsun.innerHTML = ''
-      Monday.forEach(function (doc) {
-        mon(doc)
-        console.log('m')
-      })
-
-      Tuesday.forEach(function (doc) {
-        tue(doc)
-        console.log('t')
-      })
-
-      Wednesday.forEach(function (doc) {
-        wed(doc)
-      })
-
-      Thursday.forEach(function (doc) {
-        thu(doc)
-      })
-
-      Friday.forEach(function (doc) {
-        fri(doc)
-      })
-
-      Saturday.forEach(function (doc) {
-        sat(doc)
-      })
-
-      Sunday.forEach(function (doc) {
-        sun(doc)
-      })
-    }
-  });
-});
