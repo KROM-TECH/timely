@@ -29,11 +29,47 @@
 
 
     <div id="test3" class="col s12">
-      <h5 class="col s10 center green-text darken-3 valign-wrapper" style="margin-left: 11rem;"> Event <i
-          class="material-icons norm white-text modal-trigger" href="#" style="margin-left: 3rem;">delete</i></h5>
+      <h5 class="col s10 center green-text darken-3 " > Event </h5>
+
+                
+                
+                <div id="eventBody" class="col" style="padding-top: 3em; padding-right: 3em;">
+             
+              
+                
+                </div>
+                
+                
+                
+                
+                <section>
+                  <!-- Modal Structure -->
+                  <div id="eventModal" class="modal blue-text darken-4"
+                    style="border-radius: 1rem; width: 100%; height: 100%; overflow-x: hidden;">
+                    <div class="modal-content center">
+                
+                      <h5 style="color:#238a44;">Details</h5>
+                
+                
+                      <div class="input-field col s12">
+                        <input id="eventSubject" type="text" required />
+                        <label for="eventSubject">event</label>
+                      </div>
+                      <label for="eventDate">Date</label>
+                      <input id="eventDate" type="text" class="datepicker">
+                
+                
+                      <p id="eventWarning" class="center red-text" style="display: none;">Fill event and Date value</p>
+                      <div class="row center" style="margin-top: 7em;">
+                        <a id="saveEvent" class=" waves-effect waves-red btn-flat">save</a>
+                      </div>
+                
+                    </div>
+                  </div>
+                </section>
 
       <div class="row right" style="height: rem;">
-        <a id="fab" class="fab btn-floating btn-large waves-effect waves-light green darken-3 modal-trigger" href="#"><i
+        <a id="fab" class="fab btn-floating btn-large waves-effect waves-light green darken-3 modal-trigger" href="#eventModal"><i
             class="material-icons">add</i></a>
       </div>
     </div>
@@ -78,8 +114,7 @@
        https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
   <script src="./js/fireconfig.js"></script>
-  <script src="./js/task.js"></script>
-  <script src="./js/timetable.js"></script>
+  <script src="./js/event.js"></script>
 
 
 
