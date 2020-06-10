@@ -1,10 +1,10 @@
-const staticCacheName = 'site-static-v1';
-const dynamicCacheName = 'site-dynamic-v1';
+const staticCacheName = 'site-static-v2';
+const dynamicCacheName = 'site-dynamic-v2';
 
 const asset = [
   '/',
   '/index.html',
-  '/events.html',
+  '/event.html',
   '/task.html',
   '/js/event.js',
   '/js/materialize.min.js',
@@ -19,6 +19,7 @@ const asset = [
   '/img/friday.png',
   '/img/saturday.png',
   '/img/sunday.png',
+  'https://fonts.googleapis.com/icon?family=Material+Icons',
 
 ];
 // install service worker
@@ -30,7 +31,7 @@ self.addEventListener('install', (evt) => {
   evt.waitUntil(
     caches.open(staticCacheName).then(cache => {
       // console.log('caching stuff');
-      cache.addAll(asset)
+     return cache.addAll(asset)
     }).catch((err)=>{
       console.log(err)
     })
@@ -38,16 +39,6 @@ self.addEventListener('install', (evt) => {
 
 })
 
-// cache size limit function
-const limitCacheSize = (name, size) => {
-  caches.open(name).then(cache => {
-    cache.keys().then(keys => {
-      if (keys.length > size) {
-        cache.delete(keys[0]).then(limitCacheSize(name, size));
-      }
-    });
-  });
-};
 
 // activate event
 
@@ -65,23 +56,19 @@ self.addEventListener('activate', (evt) => {
 
 })
 
-// fetch event
-self.addEventListener('fetch', evt => {
-  if (evt.request.url.indexOf('firestore.googleapis.com') === -1) {
-    evt.respondWith(
-      caches.match(evt.request).then(cacheRes => {
-        return cacheRes || fetch(evt.request).then(fetchRes => {
+
+self.addEventListener('fetch', function (event) {
+  event.respondWith(
+    caches.open('mysite-dynamic').then(function (cache) {
+      return cache.match(event.request).then(function (response) {
+        return response || fetch(event.request).then(fetchRes => {
           return caches.open(dynamicCacheName).then(cache => {
-            // check cached items size
-            limitCacheSize(dynamicCacheName, 15);
             return fetchRes;
-          })
+          
         });
-      }).catch(() => {
-        if (evt.request.url.indexOf('.html') > -1) {
-          return caches.match('./index.html');
-        }
-      })
-    );
-  }
+          return response;
+        });
+      });
+    })
+  );
 });
